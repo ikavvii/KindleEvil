@@ -3,7 +3,8 @@ import axios from "axios";
 
 const app = express();
 const PORT = 3000;
-
+app.set("view engine", "ejs");
+app.set("views", "./views");
 app.use(express.static("public"))
 
 app.get("/", async (req, res) => {
@@ -26,6 +27,6 @@ app.get("/", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Application running on port ${PORT}`);
 });
